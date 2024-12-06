@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>One2hama</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+        a {
+    text-decoration: none;
+    color: inherit;
+}
+  button{
+    background-color: #0f4bbd;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px;
+}
+button:hover{
+    background-color: rgba(15, 75, 189, 0.75);
+
+}
+    </style>
+</head>
+<header>
+     <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">One2hama</a>
+            <ul class="nav-links">
+                <li><a href=" {% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                 <li><a href="{% url 'agent' %}">Agents</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+ </header>
+
+<body>
+ <main>
+<h1>Available Houses</h1>
+    <div class="houses">
+        {% for house in houses %}
+        <div class="house">
+            <h2>{{ house.title }}</h2>
+            <img src="{{ house.image.url }}" alt="{{ house.title }}">
+            <p>{{ house.description }}</p>
+            <p>Price: ksh{{ house.price }}</p>
+            <a href="{% url 'book_house' house.id %}">Book Now</a>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+ <button><a href="{% url 'view_bookings' %}">See my Bookings</a></button>
+ <button><a href="{% url 'service' %}">Back to services</a></button>
+
+
+ <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
+
+

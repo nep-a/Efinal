@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}One2hama{% endblock %}</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">One2hama</a>
+            <ul class="nav-links">
+                <li><a href=" {% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                 <li><a href="{% url 'agent' %}">Agents</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main">
+        {% block body %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <div class="wrapper">
+        <footer class="footer">
+        <p>
+            Email:One2hama@gmail.com
+            <br>
+            kiambu,THIKA
+
+        </p>
+        <p>&copy; 2024 One2hama. All rights reserved.</p>
+    </footer>
+
+    </div>
+    <!-- Script for Navbar -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

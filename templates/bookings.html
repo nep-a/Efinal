@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Bookings</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/booking.css' %}">
+    <style>
+        a {
+    text-decoration: none;
+    color: inherit;
+}
+  button{
+    background-color: #0f4bbd;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px;
+}
+button:hover{
+    background-color: rgba(15, 75, 189, 0.75);
+
+}
+    </style>
+</head>
+<body>
+   <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">One2hama</a>
+            <ul class="nav-links">
+                <li><a href=" {% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                 <li><a href="{% url 'agent' %}">Agents</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+   <main>
+
+    <h1>My Bookings</h1>
+
+
+    {% if bookings %}
+    <table>
+        <thead>
+            <tr>
+                <th>House</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Booked At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.house.title }}</td>
+                <td>
+                    <img src="{{ booking.house.image.url }}" alt="{{ booking.house.title }}" style="width: 150px; height: auto;">
+                </td>
+                <td>ksh{{ booking.house.price }}</td>
+                <td>{{ booking.booked_at|date:"Y-m-d H:i" }}</td>
+                <td>
+                    <form action="{% url 'delete_booking' booking.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Cancel Booking</button>
+
+                    </form>
+                    <form  method="post" style = "margin: 10px;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Pay</button>
+
+                    </form>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>You have no bookings yet. Browse <a href="{% url 'home' %}">houses</a> to book one.</p>
+    {% endif %}
+   <button><a href="{% url 'home' %}">Back to Booking</a></button>
+
+   </main>
+
+</body>
+</html>

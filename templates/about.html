@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}One2hama{% endblock %}</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        .about-section {
+    padding: 50px 20px;
+
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+strong {
+    color: #007BFF;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
+.u{
+    margin-left: 3px;
+}
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+    </style>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">One2hama</a>
+            <ul class="nav-links">
+                <li><a href=" {% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                 <li><a href="{% url 'agent' %}">Agents</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+<section class="about-section">
+        <div class="about-container">
+            <h2>About One2hama</h2>
+            <p>
+                At <strong>One2hama</strong>, we specialize in simplifying your relocation journey. Whether you’re moving locally or internationally, our mission is to provide tailored solutions that meet your needs, offering professional guidance every step of the way.
+            </p>
+            <p>
+                With years of experience, a dedicated team, and a commitment to excellence, we’ve built a reputation as a trusted partner for seamless transitions. From packing to settling into your new home, One2hama is here to make the process smooth, efficient, and stress-free.
+            </p>
+            <p>
+                Let us handle the logistics, so you can focus on what matters most: starting the next chapter of your life with ease.
+            </p>
+        </div>
+    </section>
+
+<p class="u"><b>Who We Are</b> <br>
+We are a team of relocation specialists with a passion for helping individuals, families, and businesses settle into their new homes and offices effortlessly. Backed by years of experience and a customer-first approach, we have earned our reputation as a dependable and innovative service provider.</p>
+
+<p class="u"><b>What We Offer</b> <br>
+Tailored Relocation Plans: Whether you’re moving locally or internationally, we customize solutions to fit your unique needs.
+Expert Guidance: Our knowledgeable team supports you at every stage of your move, from planning to execution.
+Comprehensive Services: From packing and transport to settling in, we take care of all the details so you can focus on your next chapter.</p>
+
+<p class="u"><b>Why Choose Us? <br>
+Reliability: You can count on us to deliver on time and exceed your expectations.
+Customer Care: At One2hama, you’re not just a client—you’re family. Your satisfaction is our top priority.
+Affordable Solutions: We offer competitive pricing without compromising on quality.</b></p>
+
+<p class="u"><b>Our Mission <br>
+To provide exceptional relocation services that make every move stress-free, efficient, and memorable.
+
+Let One2hama handle the complexities of your move while you embrace the excitement of a fresh start. Ready to begin your journey? Contact us today and let’s get moving!
+
+</b></p>
+
+
+
+
+
+
+
+
+</body>
+</html>

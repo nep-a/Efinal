@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}One2hama{% endblock %}</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin:  auto;
+    max-width: 1200px;
+    align-items: center;
+}
+
+/* Individual Service Card */
+.service {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+}
+
+/* Service Image */
+.service img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Service Text */
+.service h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #3498db;
+}
+
+.service p {
+    padding: 10px;
+    font-size: 16px;
+    color: #555;
+}
+  a {
+    text-decoration: none;
+    color: inherit;
+}
+  button{
+    background-color: #0f4bbd;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    padding: 10px;
+}
+button:hover{
+    background-color: rgba(15, 75, 189, 0.75);
+
+}
+body{
+    height: 60%;
+}
+
+    </style>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">One2hama</a>
+            <ul class="nav-links">
+                <li><a href=" {% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                 <li><a href="{% url 'agent' %}">Agents</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+<main>
+    <h1>Our Services</h1>
+    <div class="services-container">
+        <div class="service">
+            <img src="{% static 'assets/images/homesearch.jpeg' %}" alt="Home Search Assistance">
+            <h2>Home Search Assistance</h2>
+            <p>Helping clients find their dream home in a new city with a range of options tailored to their preferences.</p>
+        </div>
+        <div class="service">
+            <img src="{% static 'assets/images/oyaa.jpeg' %}" alt="Packing and Moving Services">
+            <h2>Packing and Moving Services</h2>
+            <p>Expert packing and safe transportation of belongings to your new home.</p>
+        </div>
+        <div class="service">
+            <img src="{% static 'assets/images/reale5.jpeg' %}" alt="Temporary Accommodation">
+            <h2>Temporary Accommodation</h2>
+            <p>Arranging temporary stays while you transition to your new home.</p>
+        </div>
+        <div class="service">
+            <img src="{% static 'assets/images/shop4.jpg' %}" alt="Utility Setup">
+            <h2>Utility Setup</h2>
+            <p>Setting up essential services like water, electricity, and internet in your new home.</p>
+        </div>
+        <div class="service">
+            <img src="{% static 'assets/images/city.webp' %}" alt="City Orientation Tours">
+            <h2>City Orientation Tours</h2>
+            <p>Introducing clients to the new city’s neighborhoods, schools, and amenities.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<button ><a href="{% url 'post_inquiry' %}">Get Inquiry</a></button>
+<button><a href="{% url 'home' %}">BOOK AVAILABLE HOUSES</a></button>
+
+
+
+
+</main>
+
+
+
+
+
+
+</body>
+</html>

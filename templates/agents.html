@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}One2hama{% endblock %}</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        .agents-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.agents-section h2 {
+    font-size: 2em;
+    color: #007BFF;
+    margin-bottom: 30px;
+}
+
+.agents-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.agent-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.agent-card:hover {
+    transform: translateY(-10px);
+}
+
+.agent-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.agent-card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.agent-card p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #666;
+}
+
+.agent-card .phone,
+.agent-card .email,
+.agent-card .state {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.agent-card .phone {
+    color: #007BFF;
+}
+
+.agent-card .email {
+    color: #007BFF;
+}
+
+.agent-card .state {
+    color: #28a745;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .agent-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .agent-card h3 {
+        font-size: 1.2em;
+    }
+
+    .agent-card p {
+        font-size: 0.9em;
+    }
+}
+        body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">One2hama</a>
+            <ul class="nav-links">
+                <li><a href=" {% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                 <li><a href="{% url 'agent' %}">Agents</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+<main>
+    <section class="agents-section">
+        <h2>Reach Our Agents</h2>
+        <div class="agents-container">
+            <!-- Agent 1 -->
+            <div class="agent-card">
+                <img src="{% static 'assets/images/agent1.jpeg' %}" alt="Agent 1">
+                <h3>Mitchel Winnie</h3>
+                <p class="phone">📞 0724445173</p>
+                <p class="email">✉ mwinnie@gmail.com</p>
+                <p class="state">📍 Kiambu</p>
+            </div>
+            <!-- Agent 2 -->
+            <div class="agent-card">
+                <img src="{% static 'assets/images/agen2.webp' %}" alt="Agent 2">
+                <h3>Mark Koge</h3>
+                <p class="phone">📞 0727003244</p>
+                <p class="email">✉ Kogemark@gmail.com</p>
+                <p class="state">📍 Kisumu</p>
+            </div>
+            <!-- Agent 3 -->
+            <div class="agent-card">
+                <img src="{% static 'assets/images/agent3.webp' %}" alt="Agent 3">
+                <h3>Gloria Mwanzimbi</h3>
+                <p class="phone">📞 0712975420</p>
+                <p class="email">✉  GloM@gmail.com</p>
+                <p class="state">📍 Mombasa</p>
+            </div>
+            <!-- Agent 4 -->
+            <div class="agent-card">
+                <img src="{% static 'assets/images/agent4.webp' %}" alt="Agent 4">
+                <h3>Emily Shikwana</h3>
+                <p class="phone">📞 0700653389</p>
+                <p class="email">✉ Ewes@gmail.com</p>
+                <p class="state">📍 Kakamega</p>
+            </div>
+            <!-- Agent 5 -->
+            <div class="agent-card">
+                <img src="{% static 'assets/images/agent5.webp' %}" alt="Agent 5">
+                <h3>David Wamulei</h3>
+                <p class="phone">📞 0733376032</p>
+                <p class="email">✉ david.@gmail.com</p>
+                <p class="state">📍 Nairobi,Nakuru</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1 style="text-align: center">Our Agents: Experts in Relocation</h1>
+
+    <p style="margin-left: 3px">At One2hama, our agents are the heart of what we do. We take pride in offering personalized and efficient relocation services, and our dedicated agents are here to ensure that every move, no matter how complex, is handled with care and expertise.</p>
+
+<h1>What Our Agents Do</h1>
+    <p style="margin-left: 3px">Personalized Consultation: <br>
+        <br>    Our agents start by understanding your unique needs and preferences. Whether you're moving across town or internationally, they tailor a plan that suits your specific relocation requirements.
+
+</p>
+
+<p style="margin-left: 3px">End-to-End Relocation Support:<br>
+    <br>From the moment you reach out to One2hama, our agents guide you through the entire relocation process. They offer advice, coordinate logistics, and ensure your possessions are handled with the utmost care.</p>
+
+<p style="margin-left: 3px">Local Knowledge and Expertise: <br>
+    Each agent is an expert in their designated region, equipped with in-depth knowledge of local areas. They help you settle into your new environment by providing information on local amenities, schools, public transport, and more.</p>
+    <br><br>
+    <p style="margin-left: 3px">Efficient Coordination: <br>
+Our agents are experienced in working with movers, packers, and service providers to ensure your relocation is efficient and stress-free. They manage schedules and deadlines, ensuring that all tasks are completed on time.
+    <br> <br>
+Ongoing Support: <br>
+Moving doesn’t end once you’ve unpacked. Our agents offer post-relocation support, helping you get settled in your new place and offering guidance as you adjust to your new life.
+    <br> <br>
+Trusted Network: <br>
+Our agents are part of a vast network of trusted professionals, including moving companies, real estate agents, and more. They connect you with reliable services to make your relocation seamless.
+
+</p>
+
+<h1>Why Choose Our Agents?</h1>
+<p style="margin-left: 3px">Experience: Our agents have years of experience in the relocation industry and are trained to handle all aspects of moving, from logistics to paperwork.
+    <br>
+    Customer-Centered: Every agent at One2hama is committed to providing exceptional service and making your move as smooth as possible.
+    <br>
+    Local Expertise: Whether you are moving locally or internationally, our agents have the knowledge of the area to assist you in your transition.</p>
+
+</main>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
